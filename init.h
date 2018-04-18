@@ -20,8 +20,17 @@
 #define CHUNK_SIZE 1024 // 1KB
 #define LOG_SIZE 200*1024*1024 // 200MB, allowed to configure
 #define CHUNK_NUM ((INIT_SIZE-LOG_SIZE)/CHUNK_SIZE-1) // The first chunk is reserved for system metadata
-#define ID_CACHE_SIZE (sizeof(struct_id_cache));
+#define ID_CACHE_SIZE (sizeof(struct_d_cache));
 #define OBJ_META_SIZE (sizeof(struct_obj_meta));
+#define GLOBAL_META_SIZE (sizeof(struct_global_meta))
+
+typedef struct {
+    int global_id;
+    int total_size;
+    int free_size;
+    int active_id_list[100];
+    // To be added...
+}struct_global_meta;
 
 typedef struct {
     int id;
@@ -36,6 +45,7 @@ typedef struct {
 
 char *get_sys_base_addr();
 char *get_user_base_addr();
+void  p_init();
 char *p_malloc(int ID, int size);
 char *p_get(int ID);
 int   p_free(int ID);
