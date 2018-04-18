@@ -1,4 +1,4 @@
-#include "p_mmap.h"
+#include "init.h"
 #include "stdlib.h"
 #include "time.h"
 /**
@@ -21,7 +21,7 @@ typedef struct {
 
 #define MAX_INIT_SIZE (200 * 1024 * 1024)
 #define NUMMAX (1000 * 10000)
-#define INIT_SIZE (MAX_INIT_SIZE * sizeof(int))
+// #define NUMMAX 10000
 #define BIND_ID rand() % 1000
 #define MALLOCSIZE (NUMMAX * sizeof(int))
 
@@ -35,24 +35,14 @@ int main() {
 
     int rand_loc = 1;
     int NUMINTS = 1000;
-    int test_id = 100;
+    int test_id = 1;
 
     srand((unsigned int)time(NULL));
 
     int iRet = 0;
     char *ptr = NULL;
 
-    start = clock();
-    iRet = p_init(MAX_INIT_SIZE);
-    if (iRet < 0) {
-        printf("Init error.\n");
-        return -1;
-    }
     p_clear();
-
-    end = clock();
-    duration = (double)(end-start)/CLOCKS_PER_SEC;
-    printf("p_init time %f seconds\n", duration);
 
     start = clock();
     int *map = (int *)p_malloc(test_id, MALLOCSIZE);

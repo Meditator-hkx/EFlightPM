@@ -14,11 +14,13 @@
 #include<string.h>
 #include<stdio.h>
 #include<error.h>
+#include "config.h"
 
-#define INIT_SIZE 1024*1024*1024 // 1GB, allowed to configure
+// #define INIT_SIZE 1024*1024*1024 // 1GB, allowed to configure
 #define INIT_KEY 123456 // for shm_get
-#define CHUNK_SIZE 1024 // 1KB
-#define LOG_SIZE 200*1024*1024 // 200MB, allowed to configure
+// #define CHUNK_SIZE 1024 // 1KB
+// #define CHUNK_SIZE 200 * 1024 * 1024 // for nvm_hash_test
+// #define LOG_SIZE 200*1024*1024 // 200MB, allowed to configure
 #define CHUNK_NUM ((INIT_SIZE-LOG_SIZE)/CHUNK_SIZE-1) // The first chunk is reserved for system metadata
 #define ID_CACHE_SIZE (sizeof(struct_d_cache));
 #define OBJ_META_SIZE (sizeof(struct_obj_meta));

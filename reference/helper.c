@@ -25,8 +25,10 @@
 #include<unistd.h>
 #include<string.h>
 
-#define SIZE 1024*1024*1024
-#define KEY 123456
+#define INIT_SIZE (1024*1024*1024)
+#define CHUNK_SIZE (200*1024*1024)
+#define CHUNK_NUM (INIT_SIZE / CHUNK_SIZE)
+#define KEY 12345
 
 int main(int argc, char **argv) {
     int shmid;
@@ -34,10 +36,11 @@ int main(int argc, char **argv) {
     int flag = 0;
     int pid;
 
-
+    // test mod function
+    printf("INIT_SIZE %lu, CHUNK_SIZE %d, CHUNK_NUM %d\n", INIT_SIZE, CHUNK_SIZE, CHUNK_NUM);
     // write to shmaddr
     if (argc == 2 && argv[1][0] == 'w') {
-        shmid = shmget(KEY, SIZE, IPC_CREAT | 0666);
+        shmid = shmget(KEY, INIT_SIZE, IPC_CREAT | 0666);
         // printf("shmid: %d\n", shmid);
         shmaddr = (char *)shmat(shmid, NULL, 0);
         // printf("shmaddr: %p\n", shmaddr);
@@ -51,7 +54,7 @@ int main(int argc, char **argv) {
 
     // read from shmaddr
     else if (argc == 2 && argv[1][0] == 'r') {
-        shmid = shmget(KEY, SIZE, IPC_CREAT | 0666);
+        shmid = shmget(KEY, INIT_SIZE, IPC_CREAT | 0666);
         // printf("shmid: %d\n", shmid);
         shmaddr = (char *)shmat(shmid, NULL, 0);
         // printf("shmaddr: %p\n", shmaddr);

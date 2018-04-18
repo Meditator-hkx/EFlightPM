@@ -164,14 +164,16 @@ int p_clear() {
     int ret = -1;
     char *sys_base_addr = get_sys_base_addr();
     memset(sys_base_addr, 0, INIT_SIZE);
-    ret = shmdt(shmaddr);
-    if (ret == -1) {
-        perror("Fail to reset!\n");
-    }
+    // ret = shmdt(shmaddr);
+    // if (ret == -1) {
+    //    perror("Fail to reset!\n");
+    // }
+    ret = 0;
     return ret;
 }
 
 int outer_hash(int id) {
     int ret = id % CHUNK_NUM;
+    printf("CHUNK NUM is %d.\n", CHUNK_NUM);
     return ret;
 }

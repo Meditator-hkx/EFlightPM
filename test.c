@@ -37,7 +37,8 @@ int main(int argc, char **argv) {
     // global meta info
     global_meta = (struct_global_meta *)get_sys_base_addr();
 
-    if (argc == 2 && argv[1][0] == 'm') {
+    // if (argc == 2 && argv[1][0] == 'm') {
+    if (1) {
         printf("\n1. p_malloc test. If successful, return allocated memory address for each data element, else return failed info.\n");
         // init to guarantee purity of this run
         p_clear();

@@ -14,7 +14,6 @@
 #include<unistd.h>
 #include<time.h>
 
-#define FILEPATH_R "/mnt/ramdisk/mmap.bin"
 #define FILEPATH_D "./disk/mmap.bin"
 #define NUMMAX (1000 * 10000)
 #define FILESIZE (NUMMAX * sizeof(int))
@@ -28,17 +27,12 @@ int main(int argc, char *argv[]) {
     clock_t start, end;
     clock_t in_start, in_end;
     int rand_loc = 1;
-    char control = argv[1][0];
     int NUMINTS = 1000;
 
     srand((unsigned int)time(NULL));
 
     start = clock();
-    if (control == 'R') {
-        fd = open(FILEPATH_R, O_RDWR|O_CREAT|O_TRUNC,(mode_t)0600);
-    } else {
         fd = open(FILEPATH_D, O_RDWR|O_CREAT|O_TRUNC,(mode_t)0600);
-    }
     if (fd == -1) {
         perror("Error opening a file for writing");
         exit(EXIT_FAILURE);
@@ -89,11 +83,7 @@ int main(int argc, char *argv[]) {
         duration = (double)(end-start)/CLOCKS_PER_SEC;
         throuput = NUMINTS / duration;
         printf("-----------------------------------------------------------------------------\n");
-        if (control == 'R') {
-            printf("data number: %10d | time delay: %10f(ms) | throuput: %10f(Ops/Sec)\n", NUMINTS, duration*1000, throuput);
-        } else {
-            printf("data number: %10d | time delay: %10f(ms) | throuput: %10f(Ops/Sec)\n", NUMINTS, duration*10000, throuput/10);
-        }
+        printf("data number: %10d | time delay: %10f(ms) | throuput: %10f(Ops/Sec)\n", NUMINTS, duration*1000, throuput);
         printf("-----------------------------------------------------------------------------\n\n");
     }
 
