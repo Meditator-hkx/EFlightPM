@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>BenchMark1</class>
+ <widget class="QDialog" name="BenchMark1">
+  <property name="windowModality">
+   <enum>Qt::NonModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1452</width>
+    <height>856</height>
+   </rect>
+  </property>
+  <property name="focusPolicy">
+   <enum>Qt::ClickFocus</enum>
+  </property>
+  <property name="contextMenuPolicy">
+   <enum>Qt::CustomContextMenu</enum>
+  </property>
+  <property name="windowTitle">
+   <string>测试程序</string>
+  </property>
+  <property name="sizeGripEnabled">
+   <bool>true</bool>
+  </property>
+  <property name="modal">
+   <bool>true</bool>
+  </property>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>640</x>
+     <y>790</y>
+     <width>111</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>返回主界面</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="verticalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>250</y>
+     <width>381</width>
+     <height>141</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QProgressBar" name="progressBar_scm">
+      <property name="value">
+       <number>0</number>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QProgressBar" name="progressBar_dram">
+      <property name="value">
+       <number>0</number>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QProgressBar" name="progressBar_ramdisk">
+      <property name="value">
+       <number>0</number>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QTextBrowser" name="textBrowser">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>260</y>
+     <width>331</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="html">
+    <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;程序在LPMS上的运行进度&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QTextBrowser" name="textBrowser_2">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>310</y>
+     <width>331</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="html">
+    <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;程序在无持久化架构上的运行进度&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QTextBrowser" name="textBrowser_3">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>350</y>
+     <width>331</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="html">
+    <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;程序在传统持久化架构上的运行进度&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QChartView" name="graph_1" native="true">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>430</y>
+     <width>381</width>
+     <height>341</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QChartView" name="graph_2" native="true">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>430</y>
+     <width>391</width>
+     <height>341</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QChartView" name="graph_3" native="true">
+   <property name="geometry">
+    <rect>
+     <x>940</x>
+     <y>430</y>
+     <width>421</width>
+     <height>341</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btntest">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>600</x>
+     <y>130</y>
+     <width>111</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>1</width>
+     <height>1</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>356</width>
+     <height>600</height>
+    </size>
+   </property>
+   <property name="text">
+    <string>开始测试</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>90</y>
+     <width>531</width>
+     <height>129</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <widget class="QRadioButton" name="radioButtonData">
+      <property name="styleSheet">
+       <string notr="true">font: 16pt &quot;Sans Serif&quot;;</string>
+      </property>
+      <property name="text">
+       <string>测试不同数据集大小下三种架构的性能表现</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>33</width>
+        <height>33</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QRadioButton" name="radioButtonType">
+      <property name="styleSheet">
+       <string notr="true">font: 16pt &quot;Sans Serif&quot;;</string>
+      </property>
+      <property name="text">
+       <string>测试同一数据集、不同操作类型下三种架构的性能表现</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QTextBrowser" name="textBrowser_input">
+   <property name="geometry">
+    <rect>
+     <x>770</x>
+     <y>90</y>
+     <width>661</width>
+     <height>301</height>
+    </rect>
+   </property>
+   <property name="html">
+    <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:23.324px;&quot;&gt;&lt;span style=&quot; font-family:'monospace'; font-size:11pt; color:#000000;&quot;&gt;本演示主要展示轻量级持久内存管理系统（LPMS）的可用性及其性能，演示程序基于称为BerkeleyDB的数据库实现，运行在三种不同架构（基于DRAM的无持久化数据库I/O,基于传统文件系统的RAMDISK技术,基于持久内存（SCM）的LPMS）上并进行比较。&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:23.324px;&quot;&gt;&lt;span style=&quot; font-family:'monospace'; font-size:11pt; color:#000000;&quot;&gt;对于无持久化架构，演示程序使用了BerkeleyDB原有的纯内存数据库操作，作为性能的基准；&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:23.324px;&quot;&gt;&lt;span style=&quot; font-family:'monospace'; font-size:11pt; color:#000000;&quot;&gt;对于传统文件系统，同样使用了BerkeleyDB原有的数据库操作，区别在于将其运行在RAMDISK之上，作为传统文件系统的持久机制与轻量级持久机制对比；&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:23.324px;&quot;&gt;&lt;span style=&quot; font-family:'monospace'; font-size:11pt; color:#000000;&quot;&gt;对于基于持久内存的LPMS，演示程序使用了一个修改过的BerkeleyDB，该BerkeleyDB调用了LPMS提供的p_init()、p_new()等接口，实现了将数据库构建在SCM上的功能。&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;&lt;br /&gt;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QTextBrowser" name="textBrowser_4">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>460</x>
+     <y>20</y>
+     <width>481</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="html">
+    <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:18pt; font-weight:600; color:#ff0000;&quot;&gt;轻量持久化内存管理系统（LPMS）演示&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QChartView</class>
+   <extends>QWidget</extends>
+   <header location="global">qchartview.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
