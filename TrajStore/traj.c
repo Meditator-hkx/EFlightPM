@@ -14,7 +14,7 @@ time_t t;
 
 void rand_create_point(PointInfo *point) {
     // time_t t;
-    srand(time(0));
+    srand((unsigned int)time(NULL));
     point->city_code = rand() % 50;
     point->xx = rand() % 360;
     point->yy = rand() % 360;
@@ -25,7 +25,7 @@ void rand_create_point(PointInfo *point) {
 void rand_create_traj(TrajInfo *traj) {
     // time_t t;
     int last = 0, i;
-    srand(time(0));
+    srand((unsigned int)time(NULL));
     traj->point_num = rand() % 11;
     for (i = 0;i < traj->point_num;i++) {
         // rand_create_point(&traj->point_set[i]);
