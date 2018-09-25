@@ -163,7 +163,7 @@ int p_free(int id) {
         ret = 0;
     }
     if (ret) {
-        perror("Fail to free persistent region");
+        // perror("Fail to free persistent region");
     }
     return ret;
 }

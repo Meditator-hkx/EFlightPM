@@ -19,8 +19,8 @@
 #include<fcntl.h>
 
 #define INIT_SIZE 200*1024*1024L // 200MB, allowed to configure
-#define INIT_KEY 123456 // for shm_get
-#define CHUNK_SIZE 10*1024*1024L // 10MB
+#define INIT_KEY 12345 // for shm_get
+#define CHUNK_SIZE 50*1024*1024L // 50MB
 #define LOG_SIZE 20*1024*1024L // 20MB, allowed to configure
 #define CHUNK_NUM ((INIT_SIZE-LOG_SIZE)/CHUNK_SIZE-1) // The first chunk is reserved for system metadata
 #define ID_CACHE_SIZE (sizeof(struct_d_cache));
