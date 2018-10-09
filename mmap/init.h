@@ -18,15 +18,15 @@
 #include<stdlib.h>
 #include<fcntl.h>
 
-#define INIT_SIZE 1024*1024*1024 // 1GB, allowed to configure
+#define INIT_SIZE 200*1024*1024 // 200MB, allowed to configure
 #define INIT_KEY 123456 // for shm_get
-#define CHUNK_SIZE 1024 // 1KB
-#define LOG_SIZE 200*1024*1024 // 200MB, allowed to configure
+#define CHUNK_SIZE 10*1024*1024 // 10MB
+#define LOG_SIZE 20*1024*1024 // 20MB, allowed to configure
 #define CHUNK_NUM ((INIT_SIZE-LOG_SIZE)/CHUNK_SIZE-1) // The first chunk is reserved for system metadata
 #define ID_CACHE_SIZE (sizeof(struct_d_cache));
 #define OBJ_META_SIZE (sizeof(struct_obj_meta));
 #define GLOBAL_META_SIZE (sizeof(struct_global_meta))
-#define MAP_TARGET '/dev/pmem'
+#define MAP_TARGET "/dev/pmem0m"
 
 typedef struct {
     int global_id;

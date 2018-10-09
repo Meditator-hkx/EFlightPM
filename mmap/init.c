@@ -26,12 +26,14 @@ static char *shmaddr = NULL;
  * if NULL, then it is not initiated at all
  */ 
 char *get_sys_base_addr() {
-    int fd = open(MAP_TARGET, O_RDWR);
-    shmaddr = mmap(NULL, INIT_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
+    if (shmaddr == NULL) {
+    	int fd = open(MAP_TARGET, O_RDWR|O_CREAT);
+    	shmaddr = mmap(NULL, INIT_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
     // int shmid = shmget(INIT_KEY, INIT_SIZE, IPC_CREAT | 0666);
     // printf("shmid: %d\n", shmid);
     // shmaddr = (char *)shmat(shmid, NULL, 0);
     // printf("shmaddr: %p\n", shmaddr);
+    }
     return shmaddr;
 }
 
@@ -86,11 +88,15 @@ char *p_malloc(int id, int size) {
     // do-while may be better here
     while (offset + size < CHUNK_SIZE) {
         // pass by the allocated part
-        if (obj_meta->id != 0) {
+        if (obj_meta->id == id) {
+	    printf("This id has been already in use, please choose another one.\n");
+	    return NULL;
+	}
+        else if (obj_meta->id != 0) {
             offset = offset + OBJ_META_SIZE + obj_meta->length;
             obj_meta = (struct_obj_meta *)(chunk_addr+offset);
         } else {
-        // find first available part to user
+            // find first available part to user
             // write metadata for allocation
             obj_meta->id = id;
             obj_meta->length = size;
@@ -163,13 +169,9 @@ int p_free(int id) {
 }
 
 int p_clear() {
-    int ret = -1;
+    int ret = 0;
     char *sys_base_addr = get_sys_base_addr();
     memset(sys_base_addr, 0, INIT_SIZE);
-    ret = shmdt(shmaddr);
-    if (ret == -1) {
-        perror("Fail to reset!\n");
-    }
     return ret;
 }
 

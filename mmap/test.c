@@ -44,7 +44,11 @@ int main(int argc, char **argv) {
         // allocate memory space for struct_stu
         id = 100;
         struct_stu *obj_stu = (struct_stu *)p_malloc(id,sizeof(struct_stu));
-        obj_stu->age = 18;
+        if (obj_stu == NULL) {
+            printf("Allocation failed.\n");
+            return;
+	}
+	obj_stu->age = 18;
         obj_stu->name = "kaixin";
         iid = 200;
         int *obj_int = (int *)p_malloc(iid, sizeof(int));
@@ -79,7 +83,7 @@ int main(int argc, char **argv) {
         // printf("student   id: %d\n", stu_get->age);
         // printf("student name: %s\n", stu_get->name);
     } else if (argc == 2 && argv[1][0] == 'f') {
-        printf("\n3. p_get test. If successful, free the memory of corresponding id, else return failed info.\n");
+        printf("\n3. p_free test. If successful, free the memory of corresponding id, else return failed info.\n");
         // free the allocated memory region
         ret = p_free(id); // id = 100
         if (ret == 0) {
@@ -98,11 +102,11 @@ int main(int argc, char **argv) {
         }  
     } else {
         // print sum info
-        p_init();
         printf("Test begins / ends!\n");
         printf("------------------------------Info Sum-------------------------------------------\n");
-        printf("heap total size : %-10d;  free size: %-10d\n", global_meta->total_size, global_meta->free_size);
-        printf("---------------------------------------------------------------\n\n");
+        p_init();
+        printf("heap total size : %d MB; free size: %d MB\n", global_meta->total_size / (1024*1024), global_meta->free_size / (1024*1024));
+        printf("---------------------------------------------------------------------------------\n\n");
     }
     return 0;
 }
