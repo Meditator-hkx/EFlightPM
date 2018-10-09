@@ -52,8 +52,8 @@ int main(int argc, char **argv) {
             printf("open trajdata.bin failed!\n");
         }
         // trajs = (TrajInfo *)malloc(sizeof(TrajInfo) * TRAJNUM);
-        p_free(2);
-        trajs = (TrajInfo *)p_malloc(2, sizeof(TrajInfo) * TRAJNUM);
+        // p_free(2);
+        trajs = (TrajInfo *)malloc(sizeof(TrajInfo) * TRAJNUM);
         if (trajs == NULL) {
             printf("DRAM: Error for trajectory space allocation.\n");
             return -1;
@@ -65,11 +65,14 @@ int main(int argc, char **argv) {
 
     // Step 2: create random trajectories
     // Recovery Test
+    unsigned long li;
     if (p_get_flag == 0) {
         for (i = 0;i < TRAJNUM;i++) {
             rand_create_traj(&trajs[i]);
         }
-        // sleep(3); no use
+        for (li = 0;li < 1024 * 1024 * 1024;li++) {
+            
+        }
     }
 
     end = clock();
@@ -135,7 +138,7 @@ int main(int argc, char **argv) {
     } else {
         // printf("free trajs.\n");
         // free(trajs);
-        p_free(2);
+        free(trajs);
         fclose(fp);
     }
 }
